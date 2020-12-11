@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <style>
+    .is-loading { background: red; }
+    
+  </style>
+</head>
+<body>
+  <div id="root">
+    
+    <h2>All Tasks</h2>
+    <ul>
+      <li v-for="task in tasks" v-text="task.description">
+      </li>
+    </ul>
+
+    
+    <h2>Completed Tasks</h2>
+    <ul>
+      <li v-for="task in tasks" v-if="task.completed">
+        <em v-if="task.completed > 0" v-text="task.description"></em>
+        <button @click="clearTask(task)">X</button>
+        
+      </li>
+    </ul>
+    
+    <h2>Incomplete Tasks</h2>
+    <ul>
+      <li v-for="task in incompleteTasks">
+        <em v-text="task.description"></em>
+      <button @click="finishedTask(task)">X</button>
+      </li>
+    </ul>
+    
+  </div>
+  
+  <script>
+
+    let app = new Vue({
+      el: '#root',
+      
+      data: {
+
+        tasks: [
+          { description: 'Go to the store', completed: true },
+          { description: 'Finish screencast', completed: false },
+          { description: 'Make donation', completed: false },
+          { description: 'Clear Inbox', completed: false },
+          { description: 'Make dinner', completed: false },
+          { description: 'Clean room', completed: true },
+        ],
+          
+      },
+
+      computed: {
+        incompleteTasks() {
+          return this.tasks.filter(task => ! task.completed);
+        },
+      },
+
+      methods: {
+        clearTask(task) {
+          task.completed = false;
+        },
+        finishedTask(task) {
+          task.completed = true;
+        },
+        
+      }
+    });
+
+  </script>
+
+</body>
+</html>
