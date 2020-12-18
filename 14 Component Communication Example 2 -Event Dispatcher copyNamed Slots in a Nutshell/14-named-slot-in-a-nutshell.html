@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+
+  <style> body { padding: 50px;} </style>
+
+</head>
+<body>
+  <div id="root" class="Container">
+    <!-- learning code start -->
+
+    <modal>
+      <template slot="header">Modal Title</template>
+      <div slot="section">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, odit a nostrum maxime consequatur necessitatibus neque, inventore, sunt atque magnam ipsa excepturi laboriosam tenetur quae dolor nam voluptas ipsam ea ratione modi perspiciatis. Recusandae, repellendus aut dolorum labore autem, reprehenderit veritatis esse laboriosam cupiditate, nisi libero dolore dolores! Ab, nisi!</div>
+
+      <template slot="footer">
+        <button class="button is-success">Save changes</button>
+        <button class="button">Cancel</button>
+      </template>
+    </modal>
+
+    <!-- learning code end-->
+  </div>
+
+
+  <script src="app.js"></script>
+</body>
+</html>
